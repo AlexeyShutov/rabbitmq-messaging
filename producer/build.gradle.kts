@@ -1,4 +1,4 @@
-val springBootVersion = "2.1.7.RELEASE"
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 buildscript {
     repositories {
@@ -14,10 +14,6 @@ plugins {
     id("org.springframework.boot") version "2.1.7.RELEASE"
 }
 
-repositories {
-    mavenCentral()
-}
-
 java {
     sourceCompatibility = JavaVersion.VERSION_1_10
     targetCompatibility = JavaVersion.VERSION_1_10
@@ -26,6 +22,18 @@ java {
 springBoot {
     mainClassName = "com.messaging.producer.ProducerApp"
 }
+
+tasks.getByName<BootJar>("bootJar") {
+    group = "com.messaging.services"
+    baseName = "producer"
+    version = "1.0-SNAPSHOT"
+}
+
+repositories {
+    mavenCentral()
+}
+
+val springBootVersion = "2.1.7.RELEASE"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-parent:$springBootVersion")

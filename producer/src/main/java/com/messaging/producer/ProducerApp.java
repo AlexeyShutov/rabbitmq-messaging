@@ -11,7 +11,7 @@ public class ProducerApp implements CommandLineRunner {
 
     @Autowired
     private Producer producer;
-    @Value("${messages.default-generate-count}")
+    @Value("${producer.default-generate-count}")
     private int messagesCount;
 
     public static void main(String[] args) {

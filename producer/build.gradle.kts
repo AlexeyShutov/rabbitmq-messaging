@@ -19,11 +19,8 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_10
 }
 
-springBoot {
-    mainClassName = "com.messaging.producer.ProducerApp"
-}
-
 tasks.getByName<BootJar>("bootJar") {
+    mainClassName = "com.messaging.producer.ProducerApp"
     group = "com.messaging.services"
     baseName = "producer"
     version = "1.0-SNAPSHOT"

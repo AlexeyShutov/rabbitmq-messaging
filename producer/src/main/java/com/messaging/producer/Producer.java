@@ -20,7 +20,20 @@ public class Producer {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void produceRandomMessage(int count) {
+    public void produceRandomMessagesPeriodically(int count, int delay) {
+        while (true) {
+            produceRandomMessages(count);
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                logger.warn("Message producing interrupted");
+                return;
+            }
+        }
+    }
+
+    public void produceRandomMessages(int count) {
         for (int i = 0; i < count; i++) {
             rabbitTemplate.convertAndSend("Message " + ThreadLocalRandom.current().nextInt());
         }

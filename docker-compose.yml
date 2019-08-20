@@ -31,6 +31,13 @@ services:
     volumes:
     - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
     - "./definitions.json:/etc/rabbitmq/definitions.json"
+    ports:
+    - "4469:4369"
+    - "5771:5671"
+    - "5772:5672"
+    - "16671:15671"
+    - "16672:15672"
+    - "26672:25672"
     networks:
     - cluster-network
 
@@ -45,6 +52,13 @@ services:
     volumes:
     - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
     - "./definitions.json:/etc/rabbitmq/definitions.json"
+    ports:
+    - "4569:4369"
+    - "5871:5671"
+    - "5872:5672"
+    - "17671:15671"
+    - "17672:15672"
+    - "27672:25672"
     networks:
     - cluster-network
 

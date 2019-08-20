@@ -13,6 +13,8 @@ public class ProducerApp implements CommandLineRunner {
     private Producer producer;
     @Value("${producer.default-generate-count}")
     private int messagesCount;
+    @Value("${producer.delay-between-generations}")
+    private int delay;
 
     public static void main(String[] args) {
         SpringApplication.run(ProducerApp.class, args);
@@ -20,7 +22,7 @@ public class ProducerApp implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        producer.produceRandomMessage(messagesCount);
+        producer.produceRandomMessagesPeriodically(messagesCount, delay);
     }
 
 }

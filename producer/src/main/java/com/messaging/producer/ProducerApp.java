@@ -9,12 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ProducerApp implements CommandLineRunner {
 
-    @Autowired
-    private Producer producer;
     @Value("${producer.default-generate-count}")
     private int messagesCount;
     @Value("${producer.delay-between-generations}")
     private int delay;
+
+    @Autowired
+    private Producer producer;
 
     public static void main(String[] args) {
         SpringApplication.run(ProducerApp.class, args);

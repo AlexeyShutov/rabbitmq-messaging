@@ -71,11 +71,9 @@ services:
       - rabbitmq1
     environment:
       RABBITMQ_HOST1: rabbitmq1
-      RABBITMQ_PORT1: 5672
       RABBITMQ_HOST2: rabbitmq2
-      RABBITMQ_PORT2: 5672
       RABBITMQ_HOST3: rabbitmq3
-      RABBITMQ_PORT3: 5672
+      RABBITMQ_PORT: 5672
     ports:
       - 8081:8081
     networks:
@@ -90,11 +88,9 @@ services:
       - rabbitmq1
     environment:
       RABBITMQ_HOST1: rabbitmq1
-      RABBITMQ_PORT1: 5672
       RABBITMQ_HOST2: rabbitmq2
-      RABBITMQ_PORT2: 5672
       RABBITMQ_HOST3: rabbitmq3
-      RABBITMQ_PORT3: 5672
+      RABBITMQ_PORT: 5672
     ports:
       - 8082:8082
     networks:
